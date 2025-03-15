@@ -4,19 +4,30 @@ import CreateScreen from './CreateScreen';
 import AllItems from './AllItems';
 
 const HomeScreen = () => {
-  const [view , setView] = useState(0)
   const randomData = [
-    { id: 1, name: "Corn", stock: 4, unit: "kg" },
+    { id: 1, name: "Corn", stock: 44, unit: "kg" },
     { id: 2, name: "Wheat", stock: 35, unit: "kg" },
-    { id: 3, name: "Rice", stock: 6, unit: "kg" },
+    { id: 3, name: "Rice", stock: 16, unit: "kg" },
     { id: 4, name: "Barley", stock: 25, unit: "kg" },
     { id: 5, name: "Oats", stock: 40, unit: "kg" },
+    { id: 11, name: "Corn", stock: 44, unit: "kg" },
+    { id: 12, name: "Wheat", stock: 35, unit: "kg" },
+    { id: 13, name: "Rice", stock: 16, unit: "kg" },
+    { id: 14, name: "Barley", stock: 25, unit: "kg" },
+    { id: 15, name: "Oats", stock: 40, unit: "kg" },
     { id: 6, name: "Soybeans", stock: 55, unit: "kg" },
-    { id: 7, name: "Peanuts", stock: 30, unit: "kg" },
+    { id: 7, name: "Peanuts", stock: 20, unit: "kg" },
     { id: 8, name: "Lentils", stock: 42, unit: "kg" },
-    { id: 9, name: "Chickpeas", stock: 5, unit: "kg" },
-    { id: 10, name: "Millet", stock: 38, unit: "kg" },
+    { id: 9, name: "Chickpeas", stock: 15, unit: "kg" },
+    { id: 10, name: "Millet", stock: 18, unit: "kg" },
+    { id: 16, name: "Soybeans", stock: 55, unit: "kg" },
+    { id: 17, name: "Peanuts", stock: 20, unit: "kg" },
+    { id: 18, name: "Lentils", stock: 42, unit: "kg" },
+    { id: 19, name: "Chickpeas", stock: 15, unit: "kg" },
+    { id: 20, name: "Millet", stock: 18, unit: "kg" },
   ];
+  const [view , setView] = useState(0)
+  const [data, setData] = useState(randomData);
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Dashboard</Text>
@@ -32,9 +43,9 @@ const HomeScreen = () => {
         </Pressable>
         
       </View>
-{view === 0 && <AllItems  data={randomData}/>}
-{view === 1 && <AllItems data={randomData.filter((item)=> item.stock < 20)} />}
-{view === 2 && <CreateScreen />}
+{view === 0 && <AllItems  data={data}/>}
+{view === 1 && <AllItems data={data.filter((item)=> item.stock < 20)} />}
+{view === 2 && <CreateScreen  data={data} setData={setData}/>}
 
 
     </View>
